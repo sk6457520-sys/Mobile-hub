@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>OLD MOBILE HUB</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
 
 body{
     margin:0;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:#f4f6f8;
     color:#222;
 }
 
-/* Header */
+
+/* HEADER */
+
 .header{
     background:#111827;
     color:white;
@@ -39,14 +44,18 @@ body{
     color:#e5e7eb;
 }
 
-/* Mobile List */
+
+/* MOBILE LIST */
+
 .mobile-list{
     max-width:600px;
     margin:auto;
-    padding:18px 12px 30px;
+    padding:18px 12px 20px;
 }
 
-/* Mobile Card */
+
+/* MOBILE CARD */
+
 .mobile-card{
     background:white;
     margin-bottom:20px;
@@ -56,7 +65,9 @@ body{
     text-align:center;
 }
 
-/* Image */
+
+/* MOBILE IMAGE */
+
 .mobile-card a{
     display:block;
 }
@@ -69,14 +80,18 @@ body{
     cursor:pointer;
 }
 
-/* Mobile Name */
+
+/* MOBILE NAME */
+
 .mobile-name{
     margin-top:12px;
     font-size:19px;
     font-weight:bold;
 }
 
-/* Price */
+
+/* PRICE */
+
 .price{
     margin-top:7px;
     font-size:22px;
@@ -84,18 +99,67 @@ body{
     color:#111827;
 }
 
-/* Instruction */
+
+/* INSTRUCTION */
+
 .instruction{
     text-align:center;
     font-size:14px;
     color:#555;
     margin-top:5px;
 }
+
+
+/* BACK CONTAINER */
+
+.back-container{
+    max-width:600px;
+    margin:auto;
+    padding:0 12px 30px;
+}
+
+
+/* BACK BUTTON */
+
+.back-button{
+    display:block;
+    width:100%;
+    padding:15px;
+    background:#111827;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+}
+
+
+/* MOBILE SCREEN */
+
+@media(max-width:480px){
+
+    .header h1{
+        font-size:27px;
+    }
+
+    .header p{
+        font-size:15px;
+    }
+
+    .mobile-card img{
+        height:250px;
+    }
+
+}
+
 </style>
 
 </head>
 
+
 <body>
+
 
 <!-- HEADER -->
 
@@ -111,6 +175,7 @@ body{
 </div>
 
 
+
 <!-- MOBILE LIST -->
 
 <div class="mobile-list">
@@ -121,7 +186,11 @@ body{
     <div class="mobile-card">
 
         <a href="customer-details.html">
-            <img src="mobile1.jpg" alt="NOKIA 1100">
+
+            <img
+            src="mobile1.jpg"
+            alt="NOKIA 1100">
+
         </a>
 
         <div class="mobile-name">
@@ -139,12 +208,17 @@ body{
     </div>
 
 
+
     <!-- MOBILE 2 -->
 
     <div class="mobile-card">
 
         <a href="customer-details.html">
-            <img src="mobile2.jpg" alt="NOKIYA 1600">
+
+            <img
+            src="mobile2.jpg"
+            alt="NOKIYA 1600">
+
         </a>
 
         <div class="mobile-name">
@@ -162,12 +236,17 @@ body{
     </div>
 
 
+
     <!-- MOBILE 3 -->
 
     <div class="mobile-card">
 
         <a href="customer-details.html">
-            <img src="mobile3.jpg" alt="NOKIA 1110">
+
+            <img
+            src="mobile3.jpg"
+            alt="NOKIA 1110">
+
         </a>
 
         <div class="mobile-name">
@@ -187,5 +266,23 @@ body{
 
 </div>
 
+
+
+<!-- BACK BUTTON -->
+
+<div class="back-container">
+
+    <a
+    href="index.html"
+    class="back-button">
+
+        ← BACK
+
+    </a>
+
+</div>
+
+
 </body>
-</html>
+
+    </html>
