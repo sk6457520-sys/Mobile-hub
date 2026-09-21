@@ -21,6 +21,9 @@ body{
     color:#222;
 }
 
+
+/* HEADER */
+
 .header{
     background:#111827;
     color:white;
@@ -34,11 +37,17 @@ body{
     letter-spacing:1px;
 }
 
+
+/* CONTAINER */
+
 .container{
     max-width:600px;
     margin:auto;
     padding:20px 12px 35px;
 }
+
+
+/* CARD */
 
 .card{
     background:white;
@@ -47,6 +56,9 @@ body{
     box-shadow:0 5px 18px rgba(0,0,0,0.08);
 }
 
+
+/* LABEL */
+
 label{
     display:block;
     margin-top:18px;
@@ -54,6 +66,9 @@ label{
     font-weight:bold;
     font-size:15px;
 }
+
+
+/* INPUT */
 
 input{
     width:100%;
@@ -67,6 +82,9 @@ input{
 input:focus{
     border-color:#111827;
 }
+
+
+/* SHOP ADDRESS */
 
 .shop{
     margin-top:25px;
@@ -83,6 +101,9 @@ input:focus{
     margin-bottom:8px;
 }
 
+
+/* MAP BUTTON */
+
 .map-button{
     display:block;
     margin-top:15px;
@@ -95,11 +116,17 @@ input:focus{
     font-weight:bold;
 }
 
+
+/* FORM BUTTONS */
+
 .form-buttons{
     display:flex;
     gap:12px;
     margin-top:15px;
 }
+
+
+/* BACK + SUBMIT */
 
 .back-button,
 .submit-button{
@@ -111,17 +138,56 @@ input:focus{
     text-align:center;
 }
 
+
+/* BACK BUTTON */
+
 .back-button{
     background:#e5e7eb;
     color:#111827;
     text-decoration:none;
 }
 
+
+/* SUBMIT BUTTON */
+
 .submit-button{
     background:#111827;
     color:white;
     border:none;
     cursor:pointer;
+}
+
+
+/* SUBMIT DISABLED */
+
+.submit-button:disabled{
+    background:#cbd5e1;
+    color:#64748b;
+    cursor:not-allowed;
+}
+
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    .header h1{
+        font-size:25px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .form-buttons{
+        gap:8px;
+    }
+
+    .back-button,
+    .submit-button{
+        font-size:15px;
+    }
+
 }
 
 </style>
@@ -132,17 +198,23 @@ input:focus{
 <body>
 
 
+<!-- HEADER -->
+
 <div class="header">
 
-<h1>CUSTOMER DETAILS</h1>
+    <h1>CUSTOMER DETAILS</h1>
 
 </div>
 
+
+<!-- MAIN CONTAINER -->
 
 <div class="container">
 
 <div class="card">
 
+
+<!-- NAME -->
 
 <label>NAME</label>
 
@@ -150,8 +222,10 @@ input:focus{
 type="text"
 id="name"
 placeholder="Enter your name"
-required>
+autocomplete="name">
 
+
+<!-- ADDRESS -->
 
 <label>ADDRESS</label>
 
@@ -159,47 +233,50 @@ required>
 type="text"
 id="address"
 placeholder="Enter your full address"
-required>
+autocomplete="street-address">
 
+
+<!-- PIN CODE -->
 
 <label>PIN CODE</label>
 
 <input
 type="text"
 id="pincode"
-placeholder="Enter PIN code"
+placeholder="Enter 6 digit PIN code"
 inputmode="numeric"
-maxlength="6"
-required>
+maxlength="6">
 
+
+<!-- MOBILE NUMBER -->
 
 <label>MOBILE NUMBER</label>
 
 <input
 type="tel"
 id="mobile"
-placeholder="Enter mobile number"
+placeholder="Enter 10 digit mobile number"
 inputmode="numeric"
 maxlength="10"
-required>
+autocomplete="tel">
 
 
 <!-- SHOP ADDRESS -->
 
 <div class="shop">
 
-<div class="shop-title">
-SHOP ADDRESS
-</div>
+    <div class="shop-title">
+        SHOP ADDRESS
+    </div>
 
-Shop Address - Nathani Market 2nd Floor 2178,<br>
-XRC9+6QP Nathani Heights,<br>
-Shop No. 2248, 2nd Floor, Nathani Building,<br>
-Lamington Road,<br>
-Marzban Parsi Colony,<br>
-Dalal Estate,<br>
-Mumbai Central, Mumbai,<br>
-Maharashtra - 400008
+    Shop Address - Nathani Market 2nd Floor 2178,<br>
+    XRC9+6QP Nathani Heights,<br>
+    Shop No. 2248, 2nd Floor, Nathani Building,<br>
+    Lamington Road,<br>
+    Marzban Parsi Colony,<br>
+    Dalal Estate,<br>
+    Mumbai Central, Mumbai,<br>
+    Maharashtra - 400008
 
 </div>
 
@@ -220,6 +297,7 @@ class="map-button">
 
 <div class="form-buttons">
 
+
 <a
 href="mobile-shop.html"
 class="back-button">
@@ -231,90 +309,134 @@ class="back-button">
 
 <button
 type="button"
+id="submitBtn"
 class="submit-button"
-onclick="submitDetails()">
+disabled>
 
 SUBMIT
 
 </button>
 
-</div>
-
 
 </div>
 
+
 </div>
 
+</div>
+
+
+<!-- JAVASCRIPT -->
 
 <script>
 
-function submitDetails(){
 
-    var name = document.getElementById("name").value.trim();
-    var address = document.getElementById("address").value.trim();
-    var pincode = document.getElementById("pincode").value.trim();
-    var mobile = document.getElementById("mobile").value.trim();
+const nameInput =
+document.getElementById("name");
 
 
-    /* CHECK EMPTY FIELDS */
-
-    if(name === ""){
-
-        alert("कृपया अपना NAME दर्ज करें।");
-        return;
-
-    }
+const addressInput =
+document.getElementById("address");
 
 
-    if(address === ""){
-
-        alert("कृपया अपना ADDRESS दर्ज करें।");
-        return;
-
-    }
+const pincodeInput =
+document.getElementById("pincode");
 
 
-    if(pincode === ""){
-
-        alert("कृपया अपना PIN CODE दर्ज करें।");
-        return;
-
-    }
+const mobileInput =
+document.getElementById("mobile");
 
 
-    if(pincode.length !== 6 || !/^[0-9]+$/.test(pincode)){
-
-        alert("कृपया सही 6 अंकों का PIN CODE दर्ज करें।");
-        return;
-
-    }
+const submitBtn =
+document.getElementById("submitBtn");
 
 
-    if(mobile === ""){
 
-        alert("कृपया अपना MOBILE NUMBER दर्ज करें।");
-        return;
+/* CHECK ALL DETAILS */
 
-    }
+function checkForm(){
 
-
-    if(mobile.length !== 10 || !/^[0-9]+$/.test(mobile)){
-
-        alert("कृपया सही 10 अंकों का MOBILE NUMBER दर्ज करें।");
-        return;
-
-    }
+    const name =
+    nameInput.value.trim();
 
 
-    /* ALL DETAILS CORRECT */
+    const address =
+    addressInput.value.trim();
 
-    window.location.href = "submit.html";
+
+    const pincode =
+    pincodeInput.value.trim();
+
+
+    const mobile =
+    mobileInput.value.trim();
+
+
+    const valid =
+
+        name !== "" &&
+
+        address !== "" &&
+
+        /^[0-9]{6}$/.test(pincode) &&
+
+        /^[0-9]{10}$/.test(mobile);
+
+
+    submitBtn.disabled = !valid;
 
 }
+
+
+
+/* CHECK WHEN USER TYPES */
+
+nameInput.addEventListener(
+    "input",
+    checkForm
+);
+
+
+addressInput.addEventListener(
+    "input",
+    checkForm
+);
+
+
+pincodeInput.addEventListener(
+    "input",
+    checkForm
+);
+
+
+mobileInput.addEventListener(
+    "input",
+    checkForm
+);
+
+
+
+/* SUBMIT BUTTON */
+
+submitBtn.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+        "submit.html";
+
+    }
+);
+
+
+/* INITIAL CHECK */
+
+checkForm();
+
 
 </script>
 
 
 </body>
 
-</html>
+    </html>
