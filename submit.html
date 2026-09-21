@@ -1,1 +1,345 @@
+<!DOCTYPE html>
+<html lang="hi">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PAYMENT & ORDER</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f6f8;
+    color:#222;
+}
+
+.header{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:28px 15px;
+}
+
+.header h1{
+    margin:0;
+    font-size:27px;
+    letter-spacing:1px;
+}
+
+.container{
+    max-width:600px;
+    margin:auto;
+    padding:20px 12px 35px;
+}
+
+.card{
+    background:white;
+    padding:22px;
+    border-radius:16px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+}
+
+
+/* INFORMATION */
+
+.info{
+    text-align:center;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:18px;
+    line-height:1.7;
+}
+
+.info-title{
+    font-size:21px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+
+/* QR CODE */
+
+.qr-title{
+    text-align:center;
+    margin-top:25px;
+    font-size:19px;
+    font-weight:bold;
+}
+
+.qr-image{
+    display:block;
+    width:100%;
+    max-width:380px;
+    margin:15px auto 10px;
+    border-radius:10px;
+}
+
+
+/* UTR */
+
+.payment-note{
+    text-align:center;
+    margin-top:18px;
+    font-size:15px;
+    line-height:1.6;
+    color:#444;
+}
+
+label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:7px;
+    font-weight:bold;
+    font-size:15px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:1px solid #d1d5db;
+    border-radius:9px;
+    font-size:16px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#111827;
+}
+
+
+/* SUBMIT UTR */
+
+.utr-button{
+    width:100%;
+    margin-top:14px;
+    padding:14px;
+    background:#111827;
+    color:white;
+    border:none;
+    border-radius:9px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* ORDER NOW */
+
+.order-button{
+    display:block;
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    border-radius:9px;
+    font-size:17px;
+    font-weight:bold;
+    text-align:center;
+    text-decoration:none;
+    border:none;
+}
+
+
+/* Disabled */
+
+.order-disabled{
+    background:#d1d5db;
+    color:#777;
+    cursor:not-allowed;
+    pointer-events:none;
+}
+
+
+/* Enabled */
+
+.order-enabled{
+    background:#111827;
+    color:white;
+    cursor:pointer;
+}
+
+
+/* BACK */
+
+.back-button{
+    display:block;
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    background:#e5e7eb;
+    color:#111827;
+    text-align:center;
+    text-decoration:none;
+    border-radius:9px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.message{
+    display:none;
+    margin-top:12px;
+    text-align:center;
+    font-weight:bold;
+    color:#15803d;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="header">
+
+<h1>PAYMENT & ORDER</h1>
+
+</div>
+
+
+<div class="container">
+
+<div class="card">
+
+
+<!-- ORDER INFORMATION -->
+
+<div class="info">
+
+<div class="info-title">
+📦 मोबाइल ऑर्डर की जानकारी
+</div>
+
+मोबाइल ऑर्डर करने के लिए
+<strong>₹99 डिलीवरी चार्ज</strong>
+देना होगा।
+
+<br>
+
+मोबाइल की कीमत आपको
+<strong>डिलीवरी के समय डिलीवरी बॉय को देनी होगी।</strong>
+
+</div>
+
+
+<!-- QR CODE -->
+
+<div class="qr-title">
+₹99 डिलीवरी चार्ज का भुगतान करें
+</div>
+
+<img
+src="payment-qr.jpg"
+alt="₹99 Payment QR Code"
+class="qr-image">
+
+
+<!-- UTR INFORMATION -->
+
+<div class="payment-note">
+
+Payment करने के बाद अपना
+<strong>UTR / Transaction ID</strong>
+नीचे दर्ज करें।
+
+</div>
+
+
+<label>
+UTR / TRANSACTION ID
+</label>
+
+<input
+type="text"
+id="utr"
+placeholder="Enter UTR / Transaction ID">
+
+
+<button
+type="button"
+class="utr-button"
+onclick="submitUTR()">
+
+SUBMIT UTR
+
+</button>
+
+
+<div
+id="message"
+class="message">
+
+✓ UTR successfully submitted
+
+</div>
+
+
+<!-- ORDER NOW -->
+
+<a
+id="orderButton"
+href="javascript:void(0)"
+class="order-button order-disabled">
+
+ORDER NOW
+
+</a>
+
+
+<!-- BACK -->
+
+<a
+href="customer-details.html"
+class="back-button">
+
+← BACK
+
+</a>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+function submitUTR(){
+
+    var utr = document.getElementById("utr").value.trim();
+
+    if(utr === ""){
+
+        alert("कृपया पहले UTR / Transaction ID दर्ज करें।");
+
+        return;
+
+    }
+
+    document.getElementById("message").style.display = "block";
+
+    var orderButton = document.getElementById("orderButton");
+
+    orderButton.classList.remove("order-disabled");
+
+    orderButton.classList.add("order-enabled");
+
+    orderButton.href = "order-success.html";
+
+}
+
+</script>
+
+
+</body>
+
+  </html>
