@@ -66,68 +66,30 @@ body{
 }
 
 
-/* QR CODE */
+/* PAYMENT AMOUNT */
 
-.qr-title{
+.amount{
     text-align:center;
     margin-top:25px;
-    font-size:19px;
+    font-size:28px;
     font-weight:bold;
 }
 
-.qr-image{
+
+/* PAY BUTTON */
+
+.pay-button{
     display:block;
     width:100%;
-    max-width:380px;
-    height:auto;
-    margin:15px auto 10px;
-    border-radius:10px;
-}
-
-
-/* UTR INFORMATION */
-
-.payment-note{
-    text-align:center;
     margin-top:18px;
-    font-size:15px;
-    line-height:1.6;
-    color:#444;
-}
-
-label{
-    display:block;
-    margin-top:18px;
-    margin-bottom:7px;
-    font-weight:bold;
-    font-size:15px;
-}
-
-input{
-    width:100%;
-    padding:14px;
-    border:1px solid #d1d5db;
-    border-radius:9px;
-    font-size:16px;
-    outline:none;
-}
-
-input:focus{
-    border-color:#111827;
-}
-
-
-/* SUBMIT UTR */
-
-.utr-button{
-    width:100%;
-    margin-top:14px;
-    padding:14px;
+    padding:16px;
     background:#111827;
     color:white;
+    text-align:center;
+    text-decoration:none;
     border:none;
-    border-radius:9px;
-    font-size:16px;
+    border-radius:10px;
+    font-size:18px;
     font-weight:bold;
     cursor:pointer;
 }
@@ -140,31 +102,14 @@ input:focus{
     width:100%;
     margin-top:15px;
     padding:15px;
-    border-radius:9px;
-    font-size:17px;
-    font-weight:bold;
-    text-align:center;
-    text-decoration:none;
-    border:none;
-}
-
-
-/* DISABLED */
-
-.order-disabled{
     background:#d1d5db;
     color:#777;
-    cursor:not-allowed;
+    text-align:center;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
     pointer-events:none;
-}
-
-
-/* ENABLED */
-
-.order-enabled{
-    background:#111827;
-    color:white;
-    cursor:pointer;
 }
 
 
@@ -184,12 +129,12 @@ input:focus{
     font-weight:bold;
 }
 
-.message{
-    display:none;
-    margin-top:12px;
+.note{
     text-align:center;
-    font-weight:bold;
-    color:#15803d;
+    margin-top:15px;
+    font-size:13px;
+    color:#666;
+    line-height:1.5;
 }
 
 </style>
@@ -202,7 +147,7 @@ input:focus{
 
 <div class="header">
 
-<h1>PAYMENT & ORDER</h1>
+    <h1>PAYMENT & ORDER</h1>
 
 </div>
 
@@ -216,72 +161,46 @@ input:focus{
 
 <div class="info">
 
-<div class="info-title">
-📦 मोबाइल ऑर्डर की जानकारी
-</div>
+    <div class="info-title">
+        📦 मोबाइल ऑर्डर की जानकारी
+    </div>
 
-मोबाइल ऑर्डर करने के लिए
-<strong>₹99 डिलीवरी चार्ज</strong>
-देना होगा।
+    मोबाइल ऑर्डर करने के लिए
+    <strong>₹99 डिलीवरी चार्ज</strong>
+    देना होगा।
 
-<br>
+    <br><br>
 
-मोबाइल की कीमत आपको
-<strong>डिलीवरी के समय डिलीवरी बॉय को देनी होगी।</strong>
-
-</div>
-
-
-<!-- QR CODE -->
-
-<div class="qr-title">
-₹99 डिलीवरी चार्ज का भुगतान करें
-</div>
-
-
-<img
-src="IMG-20260921-WA0000.jpg"
-alt="₹99 Payment QR Code"
-class="qr-image">
-
-
-<!-- UTR INFORMATION -->
-
-<div class="payment-note">
-
-Payment करने के बाद अपना
-<strong>UTR / Transaction ID</strong>
-नीचे दर्ज करें।
+    मोबाइल की कीमत आपको
+    <strong>डिलीवरी के समय डिलीवरी बॉय को देनी होगी।</strong>
 
 </div>
 
 
-<label>
-UTR / TRANSACTION ID
-</label>
+<!-- AMOUNT -->
+
+<div class="amount">
+
+    ₹99
+
+</div>
 
 
-<input
-type="text"
-id="utr"
-placeholder="Enter UTR / Transaction ID">
+<!-- PAY BUTTON -->
+
+<a
+href="upi://pay?pa=s.kumar64000@ptyes&pn=Sonu%20Kumar&am=99.00&cu=INR"
+class="pay-button">
+
+    💳 PAY ₹99
+
+</a>
 
 
-<button
-type="button"
-class="utr-button"
-onclick="submitUTR()">
+<div class="note">
 
-SUBMIT UTR
-
-</button>
-
-
-<div
-id="message"
-class="message">
-
-✓ UTR successfully submitted
+    PAY ₹99 पर टैब करने के बाद आपके फोन में
+    उपलब्ध UPI / Payment App खुल जाएगा।
 
 </div>
 
@@ -289,11 +208,10 @@ class="message">
 <!-- ORDER NOW -->
 
 <a
-id="orderButton"
-href="javascript:void(0)"
-class="order-button order-disabled">
+href="order-success.html"
+class="order-button">
 
-ORDER NOW
+    ORDER NOW
 
 </a>
 
@@ -304,7 +222,7 @@ ORDER NOW
 href="customer-details.html"
 class="back-button">
 
-← BACK
+    ← BACK
 
 </a>
 
@@ -314,39 +232,6 @@ class="back-button">
 </div>
 
 
-<script>
-
-function submitUTR(){
-
-    var utr = document.getElementById("utr").value.trim();
-
-    if(utr === ""){
-
-        alert("कृपया पहले UTR / Transaction ID दर्ज करें।");
-
-        return;
-
-    }
-
-
-    document.getElementById("message").style.display = "block";
-
-
-    var orderButton =
-        document.getElementById("orderButton");
-
-
-    orderButton.classList.remove("order-disabled");
-
-    orderButton.classList.add("order-enabled");
-
-    orderButton.href = "order-success.html";
-
-}
-
-</script>
-
-
 </body>
 
-    </html>
+</html>
