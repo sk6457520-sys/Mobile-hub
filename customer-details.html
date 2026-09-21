@@ -68,9 +68,6 @@ input:focus{
     border-color:#111827;
 }
 
-
-/* SHOP ADDRESS */
-
 .shop{
     margin-top:25px;
     padding:18px;
@@ -86,9 +83,6 @@ input:focus{
     margin-bottom:8px;
 }
 
-
-/* MAP BUTTON */
-
 .map-button{
     display:block;
     margin-top:15px;
@@ -100,9 +94,6 @@ input:focus{
     border-radius:9px;
     font-weight:bold;
 }
-
-
-/* BACK + SUBMIT */
 
 .form-buttons{
     display:flex;
@@ -157,28 +148,40 @@ input:focus{
 
 <input
 type="text"
-placeholder="Enter your name">
+id="name"
+placeholder="Enter your name"
+required>
 
 
 <label>ADDRESS</label>
 
 <input
 type="text"
-placeholder="Enter your full address">
+id="address"
+placeholder="Enter your full address"
+required>
 
 
 <label>PIN CODE</label>
 
 <input
-type="number"
-placeholder="Enter PIN code">
+type="text"
+id="pincode"
+placeholder="Enter PIN code"
+inputmode="numeric"
+maxlength="6"
+required>
 
 
 <label>MOBILE NUMBER</label>
 
 <input
 type="tel"
-placeholder="Enter mobile number">
+id="mobile"
+placeholder="Enter mobile number"
+inputmode="numeric"
+maxlength="10"
+required>
 
 
 <!-- SHOP ADDRESS -->
@@ -213,7 +216,7 @@ class="map-button">
 </a>
 
 
-<!-- BACK + SUBMIT AT VERY BOTTOM -->
+<!-- BACK + SUBMIT -->
 
 <div class="form-buttons">
 
@@ -229,7 +232,7 @@ class="back-button">
 <button
 type="button"
 class="submit-button"
-onclick="window.location.href='submit.html'">
+onclick="submitDetails()">
 
 SUBMIT
 
@@ -241,6 +244,75 @@ SUBMIT
 </div>
 
 </div>
+
+
+<script>
+
+function submitDetails(){
+
+    var name = document.getElementById("name").value.trim();
+    var address = document.getElementById("address").value.trim();
+    var pincode = document.getElementById("pincode").value.trim();
+    var mobile = document.getElementById("mobile").value.trim();
+
+
+    /* CHECK EMPTY FIELDS */
+
+    if(name === ""){
+
+        alert("कृपया अपना NAME दर्ज करें।");
+        return;
+
+    }
+
+
+    if(address === ""){
+
+        alert("कृपया अपना ADDRESS दर्ज करें।");
+        return;
+
+    }
+
+
+    if(pincode === ""){
+
+        alert("कृपया अपना PIN CODE दर्ज करें।");
+        return;
+
+    }
+
+
+    if(pincode.length !== 6 || !/^[0-9]+$/.test(pincode)){
+
+        alert("कृपया सही 6 अंकों का PIN CODE दर्ज करें।");
+        return;
+
+    }
+
+
+    if(mobile === ""){
+
+        alert("कृपया अपना MOBILE NUMBER दर्ज करें।");
+        return;
+
+    }
+
+
+    if(mobile.length !== 10 || !/^[0-9]+$/.test(mobile)){
+
+        alert("कृपया सही 10 अंकों का MOBILE NUMBER दर्ज करें।");
+        return;
+
+    }
+
+
+    /* ALL DETAILS CORRECT */
+
+    window.location.href = "submit.html";
+
+}
+
+</script>
 
 
 </body>
