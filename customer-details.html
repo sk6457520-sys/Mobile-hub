@@ -2,7 +2,6 @@
 <html lang="hi">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,75 +9,100 @@
 
 <style>
 
+*{
+    box-sizing:border-box;
+}
+
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:#f2f2f2;
+    background:#f4f6f8;
+    color:#222;
+}
+
+.header{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:28px 15px;
+}
+
+.header h1{
+    margin:0;
+    font-size:28px;
+    letter-spacing:1px;
 }
 
 .container{
     max-width:600px;
     margin:auto;
-    padding:20px;
+    padding:20px 12px 35px;
 }
 
-.box{
+.card{
     background:white;
-    padding:20px;
-    border-radius:12px;
-    box-shadow:0 3px 10px #ccc;
-}
-
-h1{
-    text-align:center;
-    margin-bottom:25px;
+    padding:22px;
+    border-radius:16px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
 }
 
 label{
     display:block;
+    margin-top:18px;
+    margin-bottom:7px;
     font-weight:bold;
-    margin-top:15px;
-    margin-bottom:6px;
+    font-size:15px;
 }
 
 input{
     width:100%;
-    box-sizing:border-box;
     padding:14px;
-    border:1px solid #ccc;
-    border-radius:7px;
+    border:1px solid #d1d5db;
+    border-radius:9px;
     font-size:16px;
+    outline:none;
 }
 
-.shop-address{
+input:focus{
+    border-color:#111827;
+}
+
+.shop{
     margin-top:25px;
-    padding:15px;
-    background:#f5f5f5;
-    border-radius:8px;
-    line-height:1.6;
+    padding:18px;
+    background:#f8fafc;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+    line-height:1.7;
 }
 
-.map-link{
+.shop-title{
+    font-size:19px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.map-button{
     display:block;
     margin-top:15px;
     padding:14px;
-    background:#222;
+    background:#111827;
     color:white;
     text-align:center;
     text-decoration:none;
-    border-radius:7px;
+    border-radius:9px;
     font-weight:bold;
 }
 
 .back-button{
     display:block;
-    margin-top:20px;
+    margin-top:15px;
     padding:14px;
-    background:#111;
-    color:white;
+    background:#e5e7eb;
+    color:#111827;
     text-align:center;
     text-decoration:none;
-    border-radius:7px;
+    border-radius:9px;
     font-weight:bold;
 }
 
@@ -86,24 +110,27 @@ input{
 
 </head>
 
-
 <body>
 
-<div class="container">
 
-<div class="box">
+<div class="header">
 
 <h1>CUSTOMER DETAILS</h1>
 
+</div>
 
-<form>
+
+<div class="container">
+
+<div class="card">
+
 
 <label>NAME</label>
 <input type="text" placeholder="Enter your name">
 
 
 <label>ADDRESS</label>
-<input type="text" placeholder="Enter your address">
+<input type="text" placeholder="Enter your full address">
 
 
 <label>PIN CODE</label>
@@ -113,22 +140,21 @@ input{
 <label>MOBILE NUMBER</label>
 <input type="tel" placeholder="Enter mobile number">
 
-</form>
 
+<div class="shop">
 
-<div class="shop-address">
+<div class="shop-title">
+SHOP ADDRESS
+</div>
 
-<strong>Shop Address</strong><br>
-
-Nathani Market 2nd floor 2178,
-XRC9+6QP Nathani Heights,
-Shop No 2248 2nd Floor Nathani Bilg,
-Lamington Rd,
-Marzban Parsi Colony,
-Dalal Estate,
-Mumbai Central,
-Mumbai,
-Maharashtra 400008
+Shop Address - Nathani Market 2nd Floor 2178,<br>
+XRC9+6QP Nathani Heights,<br>
+Shop No. 2248, 2nd Floor, Nathani Building,<br>
+Lamington Road,<br>
+Marzban Parsi Colony,<br>
+Dalal Estate,<br>
+Mumbai Central, Mumbai,<br>
+Maharashtra - 400008
 
 </div>
 
@@ -136,13 +162,17 @@ Maharashtra 400008
 <a
 href="https://www.google.com/maps/search/?api=1&query=Nathani+Market+Mumbai"
 target="_blank"
-class="map-link">
-Map of Nathani Market
+class="map-button">
+
+📍 Map of Nathani Market
+
 </a>
 
 
 <a href="mobile-shop.html" class="back-button">
-BACK
+
+← BACK TO MOBILE SHOP
+
 </a>
 
 
@@ -150,6 +180,7 @@ BACK
 
 </div>
 
+
 </body>
 
-    </html>
+</html>
