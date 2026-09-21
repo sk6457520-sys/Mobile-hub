@@ -2,6 +2,7 @@
 <html lang="hi">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -67,6 +68,9 @@ input:focus{
     border-color:#111827;
 }
 
+
+/* SHOP ADDRESS */
+
 .shop{
     margin-top:25px;
     padding:18px;
@@ -82,6 +86,9 @@ input:focus{
     margin-bottom:8px;
 }
 
+
+/* MAP BUTTON */
+
 .map-button{
     display:block;
     margin-top:15px;
@@ -94,21 +101,42 @@ input:focus{
     font-weight:bold;
 }
 
-.back-button{
-    display:block;
+
+/* BACK + SUBMIT */
+
+.form-buttons{
+    display:flex;
+    gap:12px;
     margin-top:15px;
+}
+
+.back-button,
+.submit-button{
+    flex:1;
     padding:14px;
+    border-radius:9px;
+    font-size:16px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.back-button{
     background:#e5e7eb;
     color:#111827;
-    text-align:center;
     text-decoration:none;
-    border-radius:9px;
-    font-weight:bold;
+}
+
+.submit-button{
+    background:#111827;
+    color:white;
+    border:none;
+    cursor:pointer;
 }
 
 </style>
 
 </head>
+
 
 <body>
 
@@ -126,20 +154,34 @@ input:focus{
 
 
 <label>NAME</label>
-<input type="text" placeholder="Enter your name">
+
+<input
+type="text"
+placeholder="Enter your name">
 
 
 <label>ADDRESS</label>
-<input type="text" placeholder="Enter your full address">
+
+<input
+type="text"
+placeholder="Enter your full address">
 
 
 <label>PIN CODE</label>
-<input type="number" placeholder="Enter PIN code">
+
+<input
+type="number"
+placeholder="Enter PIN code">
 
 
 <label>MOBILE NUMBER</label>
-<input type="tel" placeholder="Enter mobile number">
 
+<input
+type="tel"
+placeholder="Enter mobile number">
+
+
+<!-- SHOP ADDRESS -->
 
 <div class="shop">
 
@@ -159,6 +201,8 @@ Maharashtra - 400008
 </div>
 
 
+<!-- MAP -->
+
 <a
 href="https://www.google.com/maps/search/?api=1&query=Nathani+Market+Mumbai"
 target="_blank"
@@ -169,11 +213,29 @@ class="map-button">
 </a>
 
 
-<a href="mobile-shop.html" class="back-button">
+<!-- BACK + SUBMIT AT VERY BOTTOM -->
 
-← BACK TO MOBILE SHOP
+<div class="form-buttons">
+
+<a
+href="mobile-shop.html"
+class="back-button">
+
+← BACK
 
 </a>
+
+
+<button
+type="button"
+class="submit-button"
+onclick="window.location.href='submit.html'">
+
+SUBMIT
+
+</button>
+
+</div>
 
 
 </div>
